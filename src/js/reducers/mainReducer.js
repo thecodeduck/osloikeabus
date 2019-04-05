@@ -1,19 +1,63 @@
+/* eslint no-eval: "warn" */
+
 import reduceReducers from 'reduce-reducers';
 
 // import isValidGamestate from '../models/isValidGamestate';
-import modal from './modalReducer';
 import * as timetables from '../models/timetables';
+import localizedTextTables from '../models/localizedTextTable';
 // import { DEALER_LIBRARY, PLAYER_LIBRARY, shuffle } from '../models/shuffle';
-import { CHOOSE_STORE, CLOSE_MODAL } from '../actions/userAction';
+import { CHOOSE_STORE, CLOSE_MODAL, CHANGE_LANG } from '../actions/userAction';
 
 const initialState = {
-	lang: 'en',
+	language: 'en',
+	localizedTextTable: localizedTextTables['en'],
 	modal: {
 		shown: false,
 		text: 'Something went wrong',
 		action: 'closeModal',
 	},
 };
+function changeLang(state, action) {
+	if (action.type !== CHANGE_LANG) {
+		return state;
+	} else {
+		let newState;
+		console.log('changeLang', action.payload.lang);
+		const lang = action.payload.lang;
+		const localizedTextTable = localizedTextTables[lang];
+		if (!localizedTextTable) {
+			throw new Error(`no localized text table for ${lang}`);
+		}
+
+		return {
+			...state,
+			lang,
+			localizedTextTable,
+		};
+
+		// switch (statement) {
+		// 	case 'en': {
+		// 		newState = {
+		// 			...state,
+		// 			lang: 'en',
+		// 			localizedTextTable: en,
+		// 		};
+		// 		break; }
+		// 	case 'no': {
+		// 		newState = {
+		// 			...state,
+		// 			lang: 'no',
+		// 			localizedTextTable: no,
+		// 		};
+		// 		break; }
+		// 	default:
+		// 		newState = {
+		// 			...state,
+		// 		};
+		// }
+		// return newState;
+	}
+}
 
 function chooseStoreReducer(state, action) {
 	if (action.type !== CHOOSE_STORE) {
@@ -24,7 +68,7 @@ function chooseStoreReducer(state, action) {
 			...state,
 			modal: {
 				shown: true,
-				text: timetables.this[store].to,
+				text: state.localizedTextTable.to[store] + ' ' + timetables[store].to,
 			},
 		};
 		console.log('chooseStore', action.payload.store);
@@ -66,5 +110,6 @@ function closeModalReducer(state, action) {
 export default reduceReducers(
 	chooseStoreReducer,
 	closeModalReducer,
+	changeLang,
 	initialState
 );

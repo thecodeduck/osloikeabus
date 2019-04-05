@@ -43,19 +43,21 @@ class App extends React.Component {
 		return (
 			<div className="container">
 				<div className="row">
-					<div className="one-third column" >
+					<div className="one-half column" >
 						<button name="en" onClick={this.onChangeLang}>en</button>
 						<button name="nb" onClick={this.onChangeLang}>no</button>
-						<h4>{this.props.localizedTextTable.title}</h4>
-						<p>{this.props.localizedTextTable.intro}</p>
-						<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">See departure on Google Maps</a>
+						<h1>{this.props.localizedTextTable.title}</h1>
+						<Clock lang={this.props.lang} />
+						<NextBus lang={this.props.lang} localizedTextTable={this.props.localizedTextTable} />
 					</div>
-					<div className="two-thirds column">
+					<div className="one-half column">
 						<div>
-							<Clock lang={this.props.lang} />
-							<NextBus lang={this.props.lang} localizedTextTable={this.props.localizedTextTable} />
-							<button name="Furuset" className="button-primary" onClick={this.onChooseStore} disabled={this.props.modalShown}>Furuset</button>
-							<button name="Slependen" className="button-primary" onClick={this.onChooseStore} disabled={this.props.modalShown}>Slependen</button>
+							<p>{this.props.localizedTextTable.intro}</p>
+							<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">See departure on Google Maps</a>
+							<div className="row">
+								<button name="Furuset" className="button-primary" onClick={this.onChooseStore} disabled={this.props.modalShown}>Furuset</button>
+								<button name="Slependen" className="button-primary" onClick={this.onChooseStore} disabled={this.props.modalShown}>Slependen</button>
+							</div>
 						</div>
 					</div>
 					<dialog style={modalStyle} id="modal">

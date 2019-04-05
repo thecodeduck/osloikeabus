@@ -64,8 +64,8 @@ class NextBus extends React.Component {
 
 		return (
 			<div>
-				<p>{this.props.localizedTextTable.to.Furuset}: {getNextBus(Furuset)}</p>
-				<p>{this.props.localizedTextTable.to.Slependen}: {getNextBus(Slependen)}</p>
+				<h4>{this.props.localizedTextTable.to.Furuset}: {getNextBus(Furuset)}</h4>
+				<h4>{this.props.localizedTextTable.to.Slependen}: {getNextBus(Slependen)}</h4>
 			</div>
 		);
 	}

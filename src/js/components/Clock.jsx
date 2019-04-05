@@ -28,8 +28,8 @@ class Clock extends React.Component {
 		const { lang } = props;
 		return (
 			<div>
-				<h4>{new Intl.DateTimeFormat(lang, { weekday: 'long', month: 'long', day: 'numeric' }).format(this.state.time)}</h4>
-				<h1>{this.state.time.toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit' })}</h1>
+				<p>{new Intl.DateTimeFormat(lang, { weekday: 'long', month: 'long', day: 'numeric' }).format(this.state.time)}</p>
+				<h2>{this.state.time.toLocaleTimeString(lang, { hour: 'numeric', minute: '2-digit' })}</h2>
 			</div>
 		);
 	}

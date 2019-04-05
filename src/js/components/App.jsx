@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 import { chooseStore, closeModal, changeLang } from '../actions/userAction';
 import Clock from './Clock';
+import NextBus from './NextBus';
 
 class App extends React.Component {
 	constructor(props) {
@@ -47,10 +48,12 @@ class App extends React.Component {
 						<button name="nb" onClick={this.onChangeLang}>no</button>
 						<h4>{this.props.localizedTextTable.title}</h4>
 						<p>{this.props.localizedTextTable.intro}</p>
+						<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">See departure on Google Maps</a>
 					</div>
 					<div className="two-thirds column">
 						<div>
 							<Clock lang={this.props.lang} />
+							<NextBus lang={this.props.lang} localizedTextTable={this.props.localizedTextTable} />
 							<button name="Furuset" className="button-primary" onClick={this.onChooseStore} disabled={this.props.modalShown}>Furuset</button>
 							<button name="Slependen" className="button-primary" onClick={this.onChooseStore} disabled={this.props.modalShown}>Slependen</button>
 						</div>
@@ -80,6 +83,10 @@ const mapActionsToProps = {
 
 App.propTypes = {
 	lang: PropTypes.string,
+	localizedTextTable: PropTypes.shape({
+		title: PropTypes.string,
+		intro: PropTypes.string,
+	}),
 	modalShown: PropTypes.bool,
 	modalText: PropTypes.string,
 };

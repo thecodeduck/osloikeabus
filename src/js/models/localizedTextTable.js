@@ -10,6 +10,7 @@ const nb = {
 		Slependen: 'Til sentrum',
 	},
 	map: 'Se på Google Maps',
+	closed: 'Stengt',
 };
 
 const en = {
@@ -24,6 +25,7 @@ const en = {
 		Slependen: 'To Sentrum',
 	},
 	map: 'See on Google Maps',
+	closed: 'Closed',
 };
 
 const localizedTextTable = {

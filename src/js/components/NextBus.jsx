@@ -37,13 +37,16 @@ class NextBus extends React.Component {
 			// console.log(weekday);
 			switch (weekday) {
 				case 'Sun': {
-					upcoming = 'Closed';
+					upcoming = localizedTextTable.closed;
 					break;
 				}
 				case 'Sat': {
 					for (let i = 0; i < schedule.toSat.length; i++) {
 						if (Number(currentTime) < schedule.toSat[i]) {
 							upcoming = schedule.toSat[i].toFixed(2).replace('.', ':');
+							break;
+						} else {
+							upcoming = localizedTextTable.closed;
 							break;
 						}
 					}
@@ -53,6 +56,9 @@ class NextBus extends React.Component {
 					for (let i = 0; i < schedule.toSat.length; i++) {
 						if (Number(currentTime) < schedule.to[i]) {
 							upcoming = schedule.to[i].toFixed(2).replace('.', ':');
+							break;
+						} else {
+							upcoming = localizedTextTable.closed;
 							break;
 						}
 					}

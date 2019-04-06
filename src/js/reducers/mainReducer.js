@@ -68,7 +68,7 @@ function chooseStoreReducer(state, action) {
 			...state,
 			modal: {
 				shown: true,
-				text: state.localizedTextTable.to[store] + ' ' + timetables[store].to,
+				text: state.localizedTextTable.to[store] + ' ' + timetables[store].to.map((i) => i.toFixed(2).replace('.', ':')),
 			},
 		};
 		console.log('chooseStore', action.payload.store);

@@ -9,7 +9,7 @@ import { createStore } from 'redux';
 import App from './components/App';
 import mainReducer from './reducers/mainReducer';
 
-import '../css//skeleton.css';
+import '../css/skeleton.css';
 import '../css/style.css';
 
 const store = createStore(

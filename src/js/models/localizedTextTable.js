@@ -1,6 +1,6 @@
 const nb = {
 	title: 'Neste IKEA-bussen',
-	intro: 'Det er to gratis IKEA-busser: én til Furuset, én til Slependen. IKEA-bussene kjører én gang i timen fra mandag til lørdag mellom Fred Olsens gate 5 og IKEA. IKEA-bussene stopper ikke mellom IKEA og Fred Olsens gate.',
+	intro: 'Det finnes to gratis IKEA-busser: én til Furuset, én til Slependen. IKEA-bussene kjører én gang i timen fra mandag til lørdag mellom Fred Olsens gate 5 og IKEA. IKEA-bussene stopper ikke mellom IKEA og Fred Olsens gate.',
 	to: {
 		Furuset: 'Til IKEA Furuset',
 		Slependen: 'Til IKEA Slependen',
@@ -9,6 +9,7 @@ const nb = {
 		Furuset: 'Til sentrum',
 		Slependen: 'Til sentrum',
 	},
+	map: 'Se på Google Maps',
 };
 
 const en = {
@@ -22,6 +23,7 @@ const en = {
 		Furuset: 'To Sentrum',
 		Slependen: 'To Sentrum',
 	},
+	map: 'See on Google Maps',
 };
 
 const localizedTextTable = {

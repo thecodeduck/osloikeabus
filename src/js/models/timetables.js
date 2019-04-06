@@ -124,3 +124,8 @@ export const Slependen = {
 		21.45,
 	],
 };
+
+export const TIMETABLES = {
+	Furuset,
+	Slependen,
+};

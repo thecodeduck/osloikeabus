@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { chooseStore, closeModal, changeLang } from '../actions/userAction';
+import TIMETABLES from '../models/timetables';
 import Clock from './Clock';
 import NextBus from './NextBus';
 
@@ -62,25 +63,31 @@ class App extends React.Component {
 			<div className="container">
 				<div className="row">
 					<div className="one-half column" >
-						<button name="en" onClick={this.onChangeLang}>en</button>
-						<button name="nb" onClick={this.onChangeLang}>no</button>
+						<div className="row">
+							<button name="en" onClick={this.onChangeLang}>en</button>
+							<button name="nb" onClick={this.onChangeLang}>no</button>
+							<Clock lang={lang} time={this.state.time} />
+						</div>
 						<h1>{localizedTextTable.title}</h1>
-						<Clock lang={lang} time={this.state.time} />
 						<NextBus lang={lang} time={this.state.time} localizedTextTable={localizedTextTable} />
+						<div className="row">
+							<a href="https://www.ikea.com/no/no/stores/slependen/" className="button button-primary" target="_blank" rel="noopener noreferrer">Slependen</a>
+							<a href="https://www.ikea.com/no/no/stores/furuset/" className="button button-primary" target="_blank" rel="noopener noreferrer">Furuset</a>
+						</div>
+
 					</div>
 					<div className="one-half column">
 						<div>
 							<p>{localizedTextTable.intro}</p>
-							<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">See departure on Google Maps</a>
-							<div className="row">
-								<button name="Furuset" className="button-primary" onClick={this.onChooseStore} disabled={this.props.modalShown}>Furuset</button>
-								<button name="Slependen" className="button-primary" onClick={this.onChooseStore} disabled={this.props.modalShown}>Slependen</button>
-							</div>
+							<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">
+								<img className="u-max-full-width" src="img/map-01.png" alt="map" />
+							</a>
+							<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">Google Maps</a>
 						</div>
 					</div>
 					<dialog style={modalStyle} id="modal">
+						<button onClick={this.modalButton}>X</button>
 						<p>{this.props.modalText}</p>
-						<button onClick={this.modalButton}>Close</button>
 					</dialog>
 				</div>
 			</div>

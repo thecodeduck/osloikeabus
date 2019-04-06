@@ -3,9 +3,23 @@ html, * {
 }
 
 .row {
-	margin-top: 10vh;
+	margin-top: 4vh;
 }
 
 #modal {
 	margin-top: 10vh;
+}
+
+.clock {
+	margin: 0;
+}
+
+.next {
+	background-color: rgba(168, 210, 244, 0.38);
+	border-radius: 2px;
+	padding-left: 8px;
+}
+
+.button:not(:last-child) {
+	margin-right: 2px;
 }

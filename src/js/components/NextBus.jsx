@@ -32,9 +32,9 @@ class NextBus extends React.Component {
 		function getNextBus(schedule) {
 			let upcoming;
 			const currentTime = `${time.getHours()}.${time.getMinutes() < 10 ? '0' : ''}${time.getMinutes()}`;
-			console.log(currentTime);
+			// console.log(currentTime);
 			const weekday = new Intl.DateTimeFormat('en', { weekday: 'short' }).format(time);
-			console.log(weekday);
+			// console.log(weekday);
 			switch (weekday) {
 				case 'Sun': {
 					upcoming = 'Closed';
@@ -43,7 +43,7 @@ class NextBus extends React.Component {
 				case 'Sat': {
 					for (let i = 0; i < schedule.toSat.length; i++) {
 						if (Number(currentTime) < schedule.toSat[i]) {
-							upcoming = schedule.toSat[i].toFixed(2);
+							upcoming = schedule.toSat[i].toFixed(2).replace('.', ':');
 							break;
 						}
 					}
@@ -52,7 +52,7 @@ class NextBus extends React.Component {
 				default: {
 					for (let i = 0; i < schedule.toSat.length; i++) {
 						if (Number(currentTime) < schedule.to[i]) {
-							upcoming = schedule.to[i].toFixed(2);
+							upcoming = schedule.to[i].toFixed(2).replace('.', ':');
 							break;
 						}
 					}
@@ -64,8 +64,8 @@ class NextBus extends React.Component {
 
 		return (
 			<div>
-				<h4>{this.props.localizedTextTable.to.Furuset}: {getNextBus(Furuset)}</h4>
-				<h4>{this.props.localizedTextTable.to.Slependen}: {getNextBus(Slependen)}</h4>
+				<h4 className="next">IKEA Furuset: {getNextBus(Furuset)}</h4>
+				<h4 className="next">IKEA Slependen: {getNextBus(Slependen)}</h4>
 			</div>
 		);
 	}

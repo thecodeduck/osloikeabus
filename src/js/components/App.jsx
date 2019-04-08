@@ -69,7 +69,7 @@ class App extends React.Component {
 							<Clock lang={lang} time={this.state.time} />
 						</div>
 						<h1>{localizedTextTable.title}</h1>
-						<NextBus lang={lang} time={this.state.time} localizedTextTable={localizedTextTable} />
+						<NextBus lang={lang}  localizedTextTable={localizedTextTable} />
 						<div className="row">
 							<a href="https://www.ikea.com/no/no/stores/slependen/" className="button button-primary" target="_blank" rel="noopener noreferrer">Slependen</a>
 							<a href="https://www.ikea.com/no/no/stores/furuset/" className="button button-primary" target="_blank" rel="noopener noreferrer">Furuset</a>

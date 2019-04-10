@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 
 import { createStore } from 'redux';
 
@@ -17,6 +18,12 @@ const store = createStore(
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-
+const APP_INSTANCE = (
+	<Provider store={store}>
+		<HashRouter>
+			<App />
+		</HashRouter>
+	</Provider>
+);
 const app = document.getElementById('app');
-ReactDOM.render(<Provider store={store}><App /></Provider>, app);
+ReactDOM.render(APP_INSTANCE, app);

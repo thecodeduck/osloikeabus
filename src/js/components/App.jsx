@@ -4,11 +4,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
+import { NavLink, Route } from 'react-router-dom';
+
 
 import { chooseStore, closeModal, changeLang } from '../actions/userAction';
-import TIMETABLES from '../models/timetables';
 import Clock from './Clock';
-import NextBus from './NextBus';
+import Sentrum from './Sentrum';
+
 
 class App extends React.Component {
 	constructor(props) {
@@ -61,38 +63,21 @@ class App extends React.Component {
 
 		return (
 			<div className="container">
-				<div className="row">
-					<div className="one-half column" >
-						<div className="row">
-							<button name="en" onClick={this.onChangeLang}>en</button>
-							<button name="nb" onClick={this.onChangeLang}>no</button>
-							<Clock lang={lang} time={this.state.time} />
-						</div>
-						<h1>{localizedTextTable.title}</h1>
-						<NextBus lang={lang}  localizedTextTable={localizedTextTable} />
-						<div className="row">
-							<a href="https://www.ikea.com/no/no/stores/slependen/" className="button button-primary" target="_blank" rel="noopener noreferrer">Slependen</a>
-							<a href="https://www.ikea.com/no/no/stores/furuset/" className="button button-primary" target="_blank" rel="noopener noreferrer">Furuset</a>
-						</div>
-						<p>
-							⚠️ This is a personal project by <a href="https://github.com/thecodeduck/osloikeabus">Codeduck on GitHub</a> and is not affiliated or supported by IKEA Systems. Codeduck is not responsible if you miss your bus!
-						</p>
+				<NavLink exact to="/">Main</NavLink>
+					<div className="row">
+						<button name="en" onClick={this.onChangeLang}>en</button>
+						<button name="nb" onClick={this.onChangeLang}>no</button>
+						<Clock lang={lang} time={this.state.time} />
 					</div>
-					<div className="one-half column">
-						<div>
-							<p>{localizedTextTable.intro}</p>
-							<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">
-								<img className="u-max-full-width" src="map-01.png" alt="map" />
-							</a>
-							<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">Google Maps</a>
-							<br />
-						</div>
-					</div>
-					<dialog style={modalStyle} id="modal">
-						<button onClick={this.modalButton}>X</button>
-						<p>{this.props.modalText}</p>
-					</dialog>
+				<div className="content">
+					<Route exact path="/">
+						<Sentrum lang={lang} localizedTextTable={localizedTextTable} />
+					</Route>
 				</div>
+				<dialog style={modalStyle} id="modal">
+					<button onClick={this.modalButton}>X</button>
+					<p>{this.props.modalText}</p>
+				</dialog>
 			</div>
 		);
 	}

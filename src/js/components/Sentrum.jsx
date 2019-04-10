@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { chooseStore, closeModal, changeLang } from '../actions/userAction';
-import TIMETABLES from '../models/timetables';
+import { Furuset, Slependen } from '../models/timetables';
+
 import NextBus from './NextBus';
 
 class Sentrum extends React.Component {
@@ -29,14 +30,12 @@ class Sentrum extends React.Component {
 			<div className="row">
 				<div className="one-half column" >
 					<h1>{localizedTextTable.title}</h1>
-					<NextBus lang={lang} localizedTextTable={localizedTextTable} />
+					<NextBus destination="IKEA Furuset" store={Furuset} direction="to" localizedTextTable={localizedTextTable} />
+					<NextBus destination="IKEA Slependen" store={Slependen} direction="to" localizedTextTable={localizedTextTable} />
 					<div className="row">
 						<a href="https://www.ikea.com/no/no/stores/slependen/" className="button button-primary" target="_blank" rel="noopener noreferrer">Slependen</a>
 						<a href="https://www.ikea.com/no/no/stores/furuset/" className="button button-primary" target="_blank" rel="noopener noreferrer">Furuset</a>
 					</div>
-					<p>
-						⚠️ This is a personal project by <a href="https://github.com/thecodeduck/osloikeabus">Codeduck on GitHub</a> and is not affiliated or supported by IKEA Systems. Codeduck is not responsible if you miss your bus!
-					</p>
 				</div>
 				<div className="one-half column">
 					<div>

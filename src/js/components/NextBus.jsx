@@ -27,26 +27,25 @@ class NextBus extends React.Component {
 
 	render() {
 		const { props, state } = this;
-		const { lang, localizedTextTable } = props;
+		const { localizedTextTable, store, direction, destination } = props;
 		const { time } = state;
 
-		function getNextBus(schedule) {
-			console.log(schedule);
-
+		function getNextBus(schedule, direction) {
 			let upcoming;
 			const currentTime = `${time.getHours()}.${time.getMinutes() < 10 ? '0' : ''}${time.getMinutes()}`;
-			console.log(currentTime);
+			// console.log(currentTime);
 			const weekday = new Intl.DateTimeFormat('en', { weekday: 'short' }).format(time);
-			console.log(weekday);
+			// console.log(weekday);
 			switch (weekday) {
 				case 'Sun': {
 					upcoming = localizedTextTable.closed;
 					break;
 				}
 				case 'Sat': {
-					for (let i = 0; i < schedule.toSat.length; i++) {
-						if (Number(currentTime) < schedule.toSat[i]) {
-							upcoming = schedule.toSat[i].toFixed(2).replace('.', ':');
+					const satDirection = `${direction}Sat`;
+					for (let i = 0; i < schedule[satDirection].length; i++) {
+						if (Number(currentTime) < schedule[satDirection][i]) {
+							upcoming = schedule[satDirection][i].toFixed(2).replace('.', ':');
 							break;
 						} else {
 							upcoming = localizedTextTable.closed;
@@ -55,9 +54,9 @@ class NextBus extends React.Component {
 					break;
 				}
 				default: {
-					for (let i = 0; i < schedule.to.length; i++) {
-						if (Number(currentTime) < schedule.to[i]) {
-							upcoming = schedule.to[i].toFixed(2).replace('.', ':');
+					for (let i = 0; i < schedule[direction].length; i++) {
+						if (Number(currentTime) < schedule[direction][i]) {
+							upcoming = schedule[direction][i].toFixed(2).replace('.', ':');
 							break;
 						} else {
 							upcoming = localizedTextTable.closed;
@@ -70,16 +69,14 @@ class NextBus extends React.Component {
 		}
 
 		return (
-			<div>
-				<h4 className="next">IKEA Furuset: {getNextBus(Furuset)}</h4>
-				<h4 className="next">IKEA Slependen: {getNextBus(Slependen)}</h4>
-			</div>
+			<React.Fragment>
+				<h4 className="next">{destination}: {getNextBus(store, direction)}</h4>
+			</React.Fragment>
 		);
 	}
 }
 
 NextBus.propTypes = {
-	lang: PropTypes.string,
 	localizedTextTable: PropTypes.shape({
 		to: PropTypes.shape({
 			Furuset: PropTypes.string,

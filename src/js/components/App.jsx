@@ -74,15 +74,27 @@ class App extends React.Component {
 						<Clock lang={lang} time={this.state.time} />
 					</div>
 				<div className="content">
-					<Route exact path="/">
-						<SentrumPage lang={lang} localizedTextTable={localizedTextTable} />
-					</Route>
-					<Route exact path="/Furuset">
-						<FurusetPage lang={lang} localizedTextTable={localizedTextTable} />
-					</Route>
-					<Route exact path="/Slependen">
-						<SlependenPage lang={lang} localizedTextTable={localizedTextTable} />
-					</Route>
+					<Route
+						exact
+						path="/"
+						render={
+							() => <SentrumPage lang={lang} localizedTextTable={localizedTextTable} />
+						}
+						/>
+				<Route
+					exact
+					path="/Furuset"
+					render={
+						() => <FurusetPage lang={lang} localizedTextTable={localizedTextTable} />
+					}
+					/>
+					<Route
+						exact
+						path="/Slependen"
+						render={
+							() => <SlependenPage lang={lang} localizedTextTable={localizedTextTable} />
+						}
+						/>
 				</div>
 				<footer>
 					⚠️ This is a personal project by <a href="https://github.com/thecodeduck/osloikeabus">Codeduck on GitHub</a> and is not affiliated or supported by IKEA Systems. Codeduck is not responsible if you miss your bus!

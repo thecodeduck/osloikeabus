@@ -1,25 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { chooseStore, closeModal, changeLang } from '../actions/userAction';
+import { chooseStore } from '../actions/userAction';
 import { Furuset, Slependen } from '../models/timetables';
 
 import NextBus from './NextBus';
 
-class Sentrum extends React.Component {
+class SentrumPage extends React.Component {
 	constructor(props) {
 		super(props);
-		this.onChooseStore = this.onChooseStore.bind(this);
-		this.onChangeLang = this.onChangeLang.bind(this);
-	}
-
-	onChooseStore(evt) {
-		//eslint-disable-next-line
-		this.props.onChooseStore(evt.target.name);
-	}
-	onChangeLang(evt) {
-		//eslint-disable-next-line
-		this.props.onChangeLang(evt.target.name);
 	}
 
 	render() {
@@ -52,12 +41,7 @@ class Sentrum extends React.Component {
 	}
 }
 
-const mapActionsToProps = {
-	onChooseStore: chooseStore,
-	onChangeLang: changeLang,
-};
-
-Sentrum.propTypes = {
+SentrumPage.propTypes = {
 	lang: PropTypes.string,
 	localizedTextTable: PropTypes.shape({
 		title: PropTypes.string,
@@ -65,4 +49,4 @@ Sentrum.propTypes = {
 	}),
 };
 
-export default Sentrum;
+export default SentrumPage;

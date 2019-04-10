@@ -9,7 +9,9 @@ import { NavLink, Route } from 'react-router-dom';
 
 import { chooseStore, closeModal, changeLang } from '../actions/userAction';
 import Clock from './Clock';
-import Sentrum from './Sentrum';
+import SentrumPage from './SentrumPage';
+import FurusetPage from './FurusetPage';
+import SlependenPage from './SlependenPage';
 
 
 class App extends React.Component {
@@ -64,6 +66,8 @@ class App extends React.Component {
 		return (
 			<div className="container">
 				<NavLink exact to="/">Main</NavLink>
+				<NavLink exact to="/Furuset">Furuset</NavLink>
+				<NavLink exact to="/Slependen">Slependen</NavLink>
 					<div className="row">
 						<button name="en" onClick={this.onChangeLang}>en</button>
 						<button name="nb" onClick={this.onChangeLang}>no</button>
@@ -71,9 +75,19 @@ class App extends React.Component {
 					</div>
 				<div className="content">
 					<Route exact path="/">
-						<Sentrum lang={lang} localizedTextTable={localizedTextTable} />
+						<SentrumPage lang={lang} localizedTextTable={localizedTextTable} />
+					</Route>
+					<Route exact path="/Furuset">
+						<FurusetPage lang={lang} localizedTextTable={localizedTextTable} />
+					</Route>
+					<Route exact path="/Slependen">
+						<SlependenPage lang={lang} localizedTextTable={localizedTextTable} />
 					</Route>
 				</div>
+				<footer>
+					⚠️ This is a personal project by <a href="https://github.com/thecodeduck/osloikeabus">Codeduck on GitHub</a> and is not affiliated or supported by IKEA Systems. Codeduck is not responsible if you miss your bus!
+				</footer>
+
 				<dialog style={modalStyle} id="modal">
 					<button onClick={this.modalButton}>X</button>
 					<p>{this.props.modalText}</p>

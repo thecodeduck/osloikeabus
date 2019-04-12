@@ -27,3 +27,8 @@ html, * {
 a:not(:last-child) {
 	margin-right: 1rem;
 }
+
+footer {
+	color: #8a8686;
+	font-size: 1rem;
+}

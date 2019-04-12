@@ -1,31 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ReactModal from 'react-modal';
+
 import { Furuset } from '../models/timetables';
 
 import NextBus from './NextBus';
+import AllBusses from './AllBusses';
 
 class FurusetPage extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			modalIsOpen: false,
+		};
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
 	}
+
+	openModal() {
+		this.setState({ modalIsOpen: true });
+	}
+
+	closeModal() {
+		this.setState({ modalIsOpen: false });
+	}
+
 
 	render() {
 		const { props } = this;
 		const { lang, localizedTextTable, time } = props;
 
 		return (
-			<div className="row">
-				<div className="one-half column" >
-					<h1>Furuset</h1>
-					<NextBus destination="Sentrum" store={Furuset} direction="from" localizedTextTable={localizedTextTable} />
-					<a href="">Fred Olsens gate 5</a>
-				</div>
-				<div className="one-half column">
-					<div>
-						<p>{localizedTextTable.intro}</p>
-					</div>
-				</div>
+			<div>
+				<h2>Furuset</h2>
+				<NextBus destination="Sentrum" store={Furuset} direction="from" localizedTextTable={localizedTextTable} />
+				<button onClick={this.openModal}>See all departure times</button>
+				<a href="https://www.ikea.com/no/no/stores/furuset/" className="button button-primary" target="_blank" rel="noopener noreferrer">Furuset</a>
+				<ReactModal
+					isOpen={this.state.modalIsOpen}
+					onAfterOpen={this.afterOpenModal}
+					onRequestClose={this.closeModal}
+					contentLabel="Example Modal"
+					>
+					<button onClick={this.closeModal}>close</button>
+					<AllBusses store={Furuset} direction="from" />
+				</ReactModal>
 			</div>
 		);
 	}

@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
 import { NavLink, Route } from 'react-router-dom';
 
@@ -19,10 +20,12 @@ class App extends React.Component {
 		super(props);
 		this.state = {
 			time: new Date(),
+			modalIsOpen: false,
 		};
 		this.onChooseStore = this.onChooseStore.bind(this);
 		this.onChangeLang = this.onChangeLang.bind(this);
-		this.modalButton = this.modalButton.bind(this);
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
 	}
 
 	componentDidMount() {
@@ -41,9 +44,12 @@ class App extends React.Component {
 		//eslint-disable-next-line
 		this.props.onChangeLang(evt.target.name);
 	}
-	modalButton(evt) {
-		//eslint-disable-next-line
-		this.props.modalButton(evt);
+	openModal() {
+		this.setState({ modalIsOpen: true });
+	}
+
+	closeModal() {
+		this.setState({ modalIsOpen: false });
 	}
 
 	tick() {
@@ -68,42 +74,51 @@ class App extends React.Component {
 				<NavLink exact to="/">Sentrum</NavLink>
 				<NavLink exact to="/Furuset">Furuset</NavLink>
 				<NavLink exact to="/Slependen">Slependen</NavLink>
+				<button onClick={this.openModal}>{localizedTextTable.language}</button>
 					<div className="row">
-						<button name="en" onClick={this.onChangeLang}>en</button>
-						<button name="nb" onClick={this.onChangeLang}>no</button>
-						<Clock lang={lang} time={this.state.time} />
+						<div className="one-third column">
+							<Clock lang={lang} time={this.state.time} />
+						</div>
+						<div className="two-thirds column">
+							<Route
+								exact
+								path="/"
+								render={
+									() => <SentrumPage lang={lang} localizedTextTable={localizedTextTable} />
+								}
+								/>
+						<Route
+							exact
+							path="/Furuset"
+							render={
+								() => <FurusetPage lang={lang} localizedTextTable={localizedTextTable} />
+							}
+							/>
+							<Route
+								exact
+								path="/Slependen"
+								render={
+									() => <SlependenPage lang={lang} localizedTextTable={localizedTextTable} />
+								}
+								/>
+						</div>
 					</div>
-				<div className="content">
-					<Route
-						exact
-						path="/"
-						render={
-							() => <SentrumPage lang={lang} localizedTextTable={localizedTextTable} />
-						}
-						/>
-				<Route
-					exact
-					path="/Furuset"
-					render={
-						() => <FurusetPage lang={lang} localizedTextTable={localizedTextTable} />
-					}
-					/>
-					<Route
-						exact
-						path="/Slependen"
-						render={
-							() => <SlependenPage lang={lang} localizedTextTable={localizedTextTable} />
-						}
-						/>
-				</div>
+					<div className="row">
+						<p>{localizedTextTable.intro}</p>
+					</div>
 				<footer>
 					⚠️ This is a personal project by <a href="https://github.com/thecodeduck/osloikeabus">Codeduck on GitHub</a> and is not affiliated or supported by IKEA Systems. Codeduck is not responsible if you miss your bus!
 				</footer>
-
-				<dialog style={modalStyle} id="modal">
-					<button onClick={this.modalButton}>X</button>
-					<p>{this.props.modalText}</p>
-				</dialog>
+				<ReactModal
+					isOpen={this.state.modalIsOpen}
+					onAfterOpen={this.afterOpenModal}
+					onRequestClose={this.closeModal}
+					contentLabel="Example Modal"
+					>
+					<button name="en" onClick={this.onChangeLang}>English</button>
+					<button name="nb" onClick={this.onChangeLang}>Norsk</button>
+					<button onClick={this.closeModal}>{localizedTextTable.accept}</button>
+				</ReactModal>
 			</div>
 		);
 	}

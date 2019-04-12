@@ -27,6 +27,7 @@ devDependencies:
   eslint-plugin-jsx-a11y: 4.0.0
   eslint-plugin-react: 6.10.3
   mocha: 6.0.2
+  react-modal: 3.8.1
   react-redux: 6.0.1
   reduce-reducers: 0.4.3
   redux: 4.0.1
@@ -3565,6 +3566,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-adbxcyWV46qiHyvSp50TKt05tB4tK3HcmF7/nxfAdhnox83seTDbwnaqKO4sXRy7roHAIFqJP/Rw/AuEbX61LA==
+  /exenv/1.2.2:
+    dev: true
+    resolution:
+      integrity: sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
   /exit-hook/1.1.1:
     dev: true
     engines:
@@ -6927,6 +6932,22 @@ packages:
   /react-is/16.8.6:
     resolution:
       integrity: sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
+  /react-lifecycles-compat/3.0.4:
+    dev: true
+    resolution:
+      integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+  /react-modal/3.8.1:
+    dependencies:
+      exenv: 1.2.2
+      prop-types: 15.7.2
+      react-lifecycles-compat: 3.0.4
+      warning: 3.0.0
+    dev: true
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16
+      react-dom: ^0.14.0 || ^15.0.0 || ^16
+    resolution:
+      integrity: sha512-aLKeZM9pgXpIKVwopRHMuvqKWiBajkqisDA8UzocdCF6S4fyKVfLWmZR5G1Q0ODBxxxxf2XIwiCP8G/11GJAuw==
   /react-redux/6.0.1:
     dependencies:
       '@babel/runtime': 7.4.3
@@ -8540,6 +8561,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
+  /warning/3.0.0:
+    dependencies:
+      loose-envify: 1.4.0
+    dev: true
+    resolution:
+      integrity: sha1-MuU3fLVy3kqwR1O9+IIcAe1gW3w=
   /watchpack/1.6.0:
     dependencies:
       chokidar: 2.1.5
@@ -9012,6 +9039,7 @@ specifiers:
   prop-types: ^15.6.2
   react: ^16.7.0
   react-dom: ^16.7.0
+  react-modal: ^3.8.1
   react-redux: ^6.0.1
   react-router-dom: ^5.0.0
   reduce-reducers: ^0.4.3

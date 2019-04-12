@@ -15,18 +15,11 @@ class SlependenPage extends React.Component {
 		const { lang, localizedTextTable, time } = props;
 
 		return (
-			<div className="row">
-				<div className="one-half column" >
-					<h1>Slependen</h1>
-					<NextBus destination="Sentrum" store={Slependen} direction="from" localizedTextTable={localizedTextTable} />
-					<a href="">Fred Olsens gate 5</a>
-					<a href="">See all departure times</a>
-				</div>
-				<div className="one-half column">
-					<div>
-						<p>{localizedTextTable.intro}</p>
-					</div>
-				</div>
+			<div>
+				<h2>Slependen</h2>
+				<NextBus destination="Sentrum" store={Slependen} direction="from" localizedTextTable={localizedTextTable} />
+				<a href="">See all departure times</a>
+				<a href="https://www.ikea.com/no/no/stores/slependen/" className="button button-primary" target="_blank" rel="noopener noreferrer">Slependen</a>
 			</div>
 		);
 	}

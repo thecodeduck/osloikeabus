@@ -11,6 +11,8 @@ const nb = {
 	},
 	map: 'Se på Google Maps',
 	closed: 'Stengt',
+	language: 'Språk',
+	accept: 'Aksept',
 };
 
 const en = {
@@ -26,6 +28,8 @@ const en = {
 	},
 	map: 'See on Google Maps',
 	closed: 'Closed',
+	language: 'Language',
+	accept: 'Accept',
 };
 
 const localizedTextTable = {

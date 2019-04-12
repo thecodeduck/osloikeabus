@@ -12,7 +12,7 @@ const nb = {
 	map: 'Se på Google Maps',
 	closed: 'Stengt',
 	language: 'Språk',
-	accept: 'Aksept',
+	accept: 'Aksepterer',
 };
 
 const en = {

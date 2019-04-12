@@ -43,7 +43,8 @@ class FurusetPage extends React.Component {
 					onRequestClose={this.closeModal}
 					contentLabel="Example Modal"
 					>
-					<button onClick={this.closeModal}>close</button>
+					<button onClick={this.closeModal}>X</button>
+					<h4>All departures from Furuset</h4>
 					<AllBusses store={Furuset} direction="from" />
 				</ReactModal>
 			</div>

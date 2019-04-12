@@ -1,13 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ReactModal from 'react-modal';
+
 import { Slependen } from '../models/timetables';
 
 import NextBus from './NextBus';
+import AllBusses from './AllBusses';
 
 class SlependenPage extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			modalIsOpen: false,
+		};
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
+	}
+
+	openModal() {
+		this.setState({ modalIsOpen: true });
+	}
+
+	closeModal() {
+		this.setState({ modalIsOpen: false });
 	}
 
 	render() {
@@ -18,8 +34,18 @@ class SlependenPage extends React.Component {
 			<div>
 				<h2>Slependen</h2>
 				<NextBus destination="Sentrum" store={Slependen} direction="from" localizedTextTable={localizedTextTable} />
-				<a href="">See all departure times</a>
+				<button onClick={this.openModal}>See all departure times</button>
 				<a href="https://www.ikea.com/no/no/stores/slependen/" className="button button-primary" target="_blank" rel="noopener noreferrer">Slependen</a>
+				<ReactModal
+					isOpen={this.state.modalIsOpen}
+					onAfterOpen={this.afterOpenModal}
+					onRequestClose={this.closeModal}
+					contentLabel="Example Modal"
+					>
+					<button onClick={this.closeModal}>X</button>
+						<h4>All departures from Slependen</h4>
+					<AllBusses store={Slependen} direction="from" />
+				</ReactModal>
 			</div>
 		);
 	}

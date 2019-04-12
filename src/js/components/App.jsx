@@ -65,7 +65,7 @@ class App extends React.Component {
 
 		return (
 			<div className="container">
-				<NavLink exact to="/">Main</NavLink>
+				<NavLink exact to="/">Sentrum</NavLink>
 				<NavLink exact to="/Furuset">Furuset</NavLink>
 				<NavLink exact to="/Slependen">Slependen</NavLink>
 					<div className="row">

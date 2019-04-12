@@ -18,7 +18,8 @@ class FurusetPage extends React.Component {
 			<div className="row">
 				<div className="one-half column" >
 					<h1>Furuset</h1>
-					<NextBus destination="Fred Olsens gate 5" store={Furuset} direction="from" localizedTextTable={localizedTextTable} />
+					<NextBus destination="Sentrum" store={Furuset} direction="from" localizedTextTable={localizedTextTable} />
+					<a href="">Fred Olsens gate 5</a>
 				</div>
 				<div className="one-half column">
 					<div>

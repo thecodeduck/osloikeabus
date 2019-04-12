@@ -18,7 +18,9 @@ class SlependenPage extends React.Component {
 			<div className="row">
 				<div className="one-half column" >
 					<h1>Slependen</h1>
-					<NextBus destination="Fred Olsens gate 5" store={Slependen} direction="from" localizedTextTable={localizedTextTable} />
+					<NextBus destination="Sentrum" store={Slependen} direction="from" localizedTextTable={localizedTextTable} />
+					<a href="">Fred Olsens gate 5</a>
+					<a href="">See all departure times</a>
 				</div>
 				<div className="one-half column">
 					<div>

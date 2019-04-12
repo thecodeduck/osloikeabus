@@ -5,6 +5,7 @@ import { chooseStore } from '../actions/userAction';
 import { Furuset, Slependen } from '../models/timetables';
 
 import NextBus from './NextBus';
+import AllBusses from './AllBusses';
 
 class SentrumPage extends React.Component {
 	constructor(props) {
@@ -21,6 +22,7 @@ class SentrumPage extends React.Component {
 					<h1>{localizedTextTable.title}</h1>
 					<NextBus destination="IKEA Furuset" store={Furuset} direction="to" localizedTextTable={localizedTextTable} />
 					<NextBus destination="IKEA Slependen" store={Slependen} direction="to" localizedTextTable={localizedTextTable} />
+					<AllBusses store={Slependen} direction="to" />
 					<div className="row">
 						<a href="https://www.ikea.com/no/no/stores/slependen/" className="button button-primary" target="_blank" rel="noopener noreferrer">Slependen</a>
 						<a href="https://www.ikea.com/no/no/stores/furuset/" className="button button-primary" target="_blank" rel="noopener noreferrer">Furuset</a>

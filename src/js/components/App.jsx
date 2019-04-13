@@ -76,10 +76,10 @@ class App extends React.Component {
 			<div>
 			<header>
 				<div className="container">
-					<NavLink className="nav button button-primary" exact to="/">Sentrum</NavLink>
-					<NavLink className="nav button button-primary" exact to="/Furuset">Furuset</NavLink>
-					<NavLink className="nav button button-primary" exact to="/Slependen">Slependen</NavLink>
-					<button className="button-primary" style={style} onClick={this.openModal}>{localizedTextTable.language}</button>
+					<NavLink className="button nav button-primary" exact to="/">Sentrum</NavLink>
+					<NavLink className="button nav button-primary" exact to="/Furuset">Furuset</NavLink>
+					<NavLink className="button nav button-primary" exact to="/Slependen">Slependen</NavLink>
+					<button className="nav button-primary" style={style} onClick={this.openModal}>a | å</button>
 				</div>
 			</header>
 			<div className="container">
@@ -111,34 +111,9 @@ class App extends React.Component {
 								/>
 						</div>
 					</div>
-					<div className="row">
-						<div className="one-third column">
-							<Route
-								exact
-								path="/"
-								render={
-									() => <a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer"><img className="u-max-full-width" src="map-01.png" alt="map" /></a>
-								}
-								/>
-							<Route
-								exact
-								path="/Furuset"
-								render={
-									() => <div />
-								}
-								/>
-							<Route
-								exact
-								path="/Slependen"
-								render={
-									() => <div />
-								}
-								/>
-						</div>
-						<div className="two-thirds column">
-							<p>{localizedTextTable.intro}</p>
-						</div>
-					</div>
+				<div className="row">
+					<p>{localizedTextTable.intro} <a href="https://goo.gl/maps/cy6kd5GWtGD2">Fred Olsens gate 5 - {localizedTextTable.map}</a></p>
+				</div>
 				<footer>
 					⚠️ This is a personal project by <a href="https://github.com/thecodeduck/osloikeabus">Codeduck on GitHub</a> and is not affiliated or supported by IKEA Systems. Codeduck is not responsible if you miss your bus!
 				</footer>

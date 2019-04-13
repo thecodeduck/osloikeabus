@@ -34,13 +34,13 @@ class AllBusses extends React.Component {
 			<React.Fragment>
 				<div className="row timetable">
 					<div className="three columns offset-by-three">
-						<p>Man-fre</p>
+						<p><b>Man-fre</b></p>
 						<ul>
 							{getAllBusses(store, direction)}
 						</ul>
 					</div>
 					<div className="three columns">
-						<p>Lørdager</p>
+						<p><b>Lørdager</b></p>
 						<ul>
 							{getAllBussesSat(store, direction)}
 						</ul>

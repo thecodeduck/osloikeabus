@@ -65,13 +65,6 @@ class App extends React.Component {
 			float: 'right',
 		};
 
-		let modalStyle;
-		if (this.props.modalShown) {
-			modalStyle = { display: 'block' };
-		} else {
-			modalStyle = { display: 'none' };
-		}
-
 		return (
 			<div>
 			<header>
@@ -112,7 +105,7 @@ class App extends React.Component {
 						</div>
 					</div>
 				<div className="row">
-					<p>{localizedTextTable.intro} <a href="https://goo.gl/maps/cy6kd5GWtGD2">Fred Olsens gate 5 - {localizedTextTable.map}</a></p>
+					<p>{localizedTextTable.intro} <a href="https://goo.gl/maps/cy6kd5GWtGD2">{localizedTextTable.mapFredOlsen}</a></p>
 				</div>
 				<footer>
 					⚠️ This is a personal project by <a href="https://github.com/thecodeduck/osloikeabus">Codeduck on GitHub</a> and is not affiliated or supported by IKEA Systems. Codeduck is not responsible if you miss your bus!
@@ -127,6 +120,7 @@ class App extends React.Component {
 					<div className="langCenter">
 						<button className="noBorder" name="en" onClick={this.onChangeLang}>English</button>
 						<button className="noBorder" name="nb" onClick={this.onChangeLang}>Norsk</button>
+						<button className="noBorder" name="pl" onClick={this.onChangeLang}>Polski</button>
 						<button className="button-primary"  onClick={this.closeModal}>{localizedTextTable.accept}</button>
 					</div>
 				</ReactModal>

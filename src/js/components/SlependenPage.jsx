@@ -32,15 +32,15 @@ class SlependenPage extends React.Component {
 
 		return (
 			<div>
-				<h2>Slependen</h2>
+				<h2>{localizedTextTable.title} Slependen</h2>
 				<NextBus destination="Sentrum" store={Slependen} direction="from" localizedTextTable={localizedTextTable} />
-				<button onClick={this.openModal}>See all departure times</button>
-				<a href="https://www.ikea.com/no/no/stores/slependen/" className="button button-primary" target="_blank" rel="noopener noreferrer">Slependen</a>
+				<button className="button-primary"  onClick={this.openModal}>{localizedTextTable.departure}</button>
+				<a href="https://www.ikea.com/no/no/stores/slependen/" className="button noBorder" target="_blank" rel="noopener noreferrer">Slependen IKEA.no</a>
 				<ReactModal
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
 					onRequestClose={this.closeModal}
-					contentLabel="Example Modal"
+					contentLabel="Slependen Timetable"
 					>
 					<button className="close" onClick={this.closeModal}>×</button>
 						<h4>All departures from Slependen</h4>

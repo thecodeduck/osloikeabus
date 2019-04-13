@@ -11,11 +11,22 @@ html, * {
 *::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
-	border-radius: 30px;
+	border-radius: 40px;
+}
+
+header {
+	background-color: #407AB1;
+	margin-bottom: 4rem;
+	padding-top: 1rem;
+	color: white !important;
+}
+
+.nav {
+	color: white;
 }
 
 .timetable {
-	height: 75%;
+	height: 65vh;
 	overflow: scroll;
 }
 
@@ -25,19 +36,23 @@ html, * {
 
 .clock {
 	margin: 0;
+	font-size: 500%;
+	text-align: center;
+}
+.clockdate {
+	font-size: 200%;
+	text-align: center;
 }
 
 .next {
 	background-color: rgba(168, 210, 244, 0.38);
 	border-radius: 2px;
 	padding-left: 8px;
+	margin-bottom: 1rem;
+	margin-top: 2rem;
 }
 
-.button:not(:last-child) {
-	margin-right: 2px;
-}
-
-a:not(:last-child) {
+a:not(:last-of-type) {
 	margin-right: 1rem;
 }
 
@@ -79,6 +94,6 @@ button.close {
 	padding-right: 0;
 }
 
-button.langChoice {
+.noBorder {
 	border: 0px;
 }

@@ -1,5 +1,5 @@
 const nb = {
-	title: 'Neste IKEA-bussen',
+	title: 'Neste IKEA-bussen fra',
 	intro: 'Det finnes to gratis IKEA-busser: én til Furuset, én til Slependen. IKEA-bussene kjører én gang i timen fra mandag til lørdag mellom Fred Olsens gate 5 og IKEA. IKEA-bussene stopper ikke mellom IKEA og Fred Olsens gate.',
 	to: {
 		Furuset: 'Til IKEA Furuset',
@@ -10,13 +10,14 @@ const nb = {
 		Slependen: 'Til sentrum',
 	},
 	map: 'Se på Google Maps',
+	departure: 'Alle avgangstider',
 	closed: 'Stengt',
 	language: 'Språk',
 	accept: 'Aksepterer',
 };
 
 const en = {
-	title: 'Next IKEA bus',
+	title: 'Next IKEA bus from',
 	intro: 'There are two free IKEA busses: one to Furuset, one to Slependen. The busses run once an hour, Monday thru Saturday, between Fred Olsens gate 5 and IKEA. This is a non-stop route.',
 	to: {
 		Furuset: 'To IKEA Furuset',
@@ -27,6 +28,7 @@ const en = {
 		Slependen: 'To Sentrum',
 	},
 	map: 'See on Google Maps',
+	departure: 'All departure times',
 	closed: 'Closed',
 	language: 'Language',
 	accept: 'Accept',

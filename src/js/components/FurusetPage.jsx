@@ -33,15 +33,15 @@ class FurusetPage extends React.Component {
 
 		return (
 			<div>
-				<h2>Furuset</h2>
+				<h2>{localizedTextTable.title} Furuset</h2>
 				<NextBus destination="Sentrum" store={Furuset} direction="from" localizedTextTable={localizedTextTable} />
-				<button onClick={this.openModal}>See all departure times</button>
-				<a href="https://www.ikea.com/no/no/stores/furuset/" className="button button-primary" target="_blank" rel="noopener noreferrer">Furuset</a>
+				<button className="button-primary" onClick={this.openModal}>{localizedTextTable.departure}</button>
+				<a href="https://www.ikea.com/no/no/stores/furuset/" className="button noBorder" target="_blank" rel="noopener noreferrer">Furuset IKEA.no</a>
 				<ReactModal
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
 					onRequestClose={this.closeModal}
-					contentLabel="Example Modal"
+					contentLabel="Furuset Timetable"
 					>
 					<button className="close" onClick={this.closeModal}>×</button>
 					<h4>All departures from Furuset</h4>

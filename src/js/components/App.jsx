@@ -61,6 +61,9 @@ class App extends React.Component {
 	render() {
 		const { props } = this;
 		const { lang, localizedTextTable } = props;
+		const style = {
+			float: 'right',
+		};
 
 		let modalStyle;
 		if (this.props.modalShown) {
@@ -70,11 +73,16 @@ class App extends React.Component {
 		}
 
 		return (
+			<div>
+			<header>
+				<div className="container">
+					<NavLink className="nav button button-primary" exact to="/">Sentrum</NavLink>
+					<NavLink className="nav button button-primary" exact to="/Furuset">Furuset</NavLink>
+					<NavLink className="nav button button-primary" exact to="/Slependen">Slependen</NavLink>
+					<button className="button-primary" style={style} onClick={this.openModal}>{localizedTextTable.language}</button>
+				</div>
+			</header>
 			<div className="container">
-				<NavLink exact to="/">Sentrum</NavLink>
-				<NavLink exact to="/Furuset">Furuset</NavLink>
-				<NavLink exact to="/Slependen">Slependen</NavLink>
-				<button onClick={this.openModal}>{localizedTextTable.language}</button>
 					<div className="row">
 						<div className="one-third column">
 							<Clock lang={lang} time={this.state.time} />
@@ -104,7 +112,32 @@ class App extends React.Component {
 						</div>
 					</div>
 					<div className="row">
-						<p>{localizedTextTable.intro}</p>
+						<div className="one-third column">
+							<Route
+								exact
+								path="/"
+								render={
+									() => <a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer"><img className="u-max-full-width" src="map-01.png" alt="map" /></a>
+								}
+								/>
+							<Route
+								exact
+								path="/Furuset"
+								render={
+									() => <div />
+								}
+								/>
+							<Route
+								exact
+								path="/Slependen"
+								render={
+									() => <div />
+								}
+								/>
+						</div>
+						<div className="two-thirds column">
+							<p>{localizedTextTable.intro}</p>
+						</div>
 					</div>
 				<footer>
 					⚠️ This is a personal project by <a href="https://github.com/thecodeduck/osloikeabus">Codeduck on GitHub</a> and is not affiliated or supported by IKEA Systems. Codeduck is not responsible if you miss your bus!
@@ -113,15 +146,16 @@ class App extends React.Component {
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
 					onRequestClose={this.closeModal}
-					contentLabel="Example Modal"
+					contentLabel="Choose Language"
 					>
 					<button className="close" onClick={this.closeModal}>×</button>
 					<div className="langCenter">
-						<button className="langChoice" name="en" onClick={this.onChangeLang}>English</button>
-						<button className="langChoice" name="nb" onClick={this.onChangeLang}>Norsk</button>
-						<button onClick={this.closeModal}>{localizedTextTable.accept}</button>
+						<button className="noBorder" name="en" onClick={this.onChangeLang}>English</button>
+						<button className="noBorder" name="nb" onClick={this.onChangeLang}>Norsk</button>
+						<button className="button-primary"  onClick={this.closeModal}>{localizedTextTable.accept}</button>
 					</div>
 				</ReactModal>
+			</div>
 			</div>
 		);
 	}

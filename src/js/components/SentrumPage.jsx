@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import ReactModal from 'react-modal';
+
 import { chooseStore } from '../actions/userAction';
 import { Furuset, Slependen } from '../models/timetables';
 
@@ -10,6 +12,30 @@ import AllBusses from './AllBusses';
 class SentrumPage extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			modalIsOpen: {
+				furuset: false,
+				slependen: false,
+			},
+		};
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
+	}
+
+	openModal(name) {
+		this.setState({
+			modalIsOpen: {
+				[name]: true,
+			},
+		});
+	}
+
+	closeModal(name) {
+		this.setState({
+			modalIsOpen: {
+				[name]: false,
+			},
+		});
 	}
 
 	render() {
@@ -17,21 +43,36 @@ class SentrumPage extends React.Component {
 		const { lang, localizedTextTable, time } = props;
 
 		return (
-			<div className="row">
-				<div className="one-half column" >
-					<h2>{localizedTextTable.title}</h2>
-					<NextBus destination="IKEA Furuset" store={Furuset} direction="to" localizedTextTable={localizedTextTable} />
-					<NextBus destination="IKEA Slependen" store={Slependen} direction="to" localizedTextTable={localizedTextTable} />
-				</div>
-				<div className="one-half column">
-					<div>
-						<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">
-							<img className="u-max-full-width" src="map-01.png" alt="map" />
-						</a>
-						<a href="https://goo.gl/maps/cy6kd5GWtGD2" target="_blank" rel="noopener noreferrer">Google Maps</a>
-						<br />
-					</div>
-				</div>
+			<div>
+				<h2>{localizedTextTable.title} Sentrum</h2>
+				<NextBus destination="IKEA Furuset" store={Furuset} direction="to" localizedTextTable={localizedTextTable} />
+				<button className="button-primary" onClick={() => this.openModal('furuset')}>{localizedTextTable.departure}</button>
+				<a href="https://www.ikea.com/no/no/stores/furuset/" className="button noBorder" target="_blank" rel="noopener noreferrer">Furuset IKEA.no</a>
+				<ReactModal
+					isOpen={this.state.modalIsOpen.furuset}
+					onAfterOpen={this.afterOpenModal}
+					onRequestClose={() => this.closeModal('furuset')}
+					contentLabel="Furuset Timetable"
+					>
+					<button className="close" onClick={() => this.closeModal('furuset')}>×</button>
+					<h4>All departures to Furuset</h4>
+					<AllBusses store={Furuset} direction="to" />
+				</ReactModal>
+
+				<NextBus destination="IKEA Slependen" store={Slependen} direction="to" localizedTextTable={localizedTextTable} />
+				<button className="button-primary" onClick={() => this.openModal('slependen')}>{localizedTextTable.departure}</button>
+				<a href="https://www.ikea.com/no/no/stores/slependen/" className="button noBorder" target="_blank" rel="noopener noreferrer">Slependen IKEA.no</a>
+				<ReactModal
+					isOpen={this.state.modalIsOpen.slependen}
+					onAfterOpen={this.afterOpenModal}
+					onRequestClose={() => this.closeModal('slependen')}
+					contentLabel="Slependen Timetable"
+					>
+					<button className="close" onClick={() => this.closeModal('slependen')}>×</button>
+						<h4>All departures to Slependen</h4>
+					<AllBusses store={Slependen} direction="to" />
+				</ReactModal>
+
 			</div>
 		);
 	}

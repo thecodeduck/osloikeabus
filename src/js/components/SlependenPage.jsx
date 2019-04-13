@@ -42,7 +42,7 @@ class SlependenPage extends React.Component {
 					onRequestClose={this.closeModal}
 					contentLabel="Example Modal"
 					>
-					<button onClick={this.closeModal}>X</button>
+					<button className="close" onClick={this.closeModal}>×</button>
 						<h4>All departures from Slependen</h4>
 					<AllBusses store={Slependen} direction="from" />
 				</ReactModal>

@@ -115,9 +115,12 @@ class App extends React.Component {
 					onRequestClose={this.closeModal}
 					contentLabel="Example Modal"
 					>
-					<button name="en" onClick={this.onChangeLang}>English</button>
-					<button name="nb" onClick={this.onChangeLang}>Norsk</button>
-					<button onClick={this.closeModal}>{localizedTextTable.accept}</button>
+					<button className="close" onClick={this.closeModal}>×</button>
+					<div className="langCenter">
+						<button className="langChoice" name="en" onClick={this.onChangeLang}>English</button>
+						<button className="langChoice" name="nb" onClick={this.onChangeLang}>Norsk</button>
+						<button onClick={this.closeModal}>{localizedTextTable.accept}</button>
+					</div>
 				</ReactModal>
 			</div>
 		);

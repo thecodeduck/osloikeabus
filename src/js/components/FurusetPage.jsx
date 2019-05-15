@@ -33,7 +33,6 @@ class FurusetPage extends React.Component {
 
 		return (
 			<div>
-				<p>{localizedTextTable.title} Furuset</p>
 				<NextBus destination="Sentrum" store={Furuset} direction="from" localizedTextTable={localizedTextTable} />
 				<button className="button-primary" onClick={this.openModal}>{localizedTextTable.departure}</button>
 				<ReactModal

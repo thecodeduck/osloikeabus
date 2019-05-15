@@ -71,7 +71,7 @@ class NextBus extends React.Component {
 		return (
 			<React.Fragment>
 				<h1>{getNextBus(store, direction)}</h1>
-				<p>{localizedTextTable.title} {store.name} {localizedTextTable.to} {destination}</p>
+				<p>{localizedTextTable.title} {direction === 'to' ? 'Sentrum' : store.name} {localizedTextTable.to} {destination}</p>
 			</React.Fragment>
 		);
 	}

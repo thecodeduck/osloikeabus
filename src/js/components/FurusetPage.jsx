@@ -36,7 +36,6 @@ class FurusetPage extends React.Component {
 				<h2>{localizedTextTable.title} Furuset</h2>
 				<NextBus destination="Sentrum" store={Furuset} direction="from" localizedTextTable={localizedTextTable} />
 				<button className="button-primary" onClick={this.openModal}>{localizedTextTable.departure}</button>
-				<a href="https://www.ikea.com/no/no/stores/furuset/" className="button noBorder" target="_blank" rel="noopener noreferrer">Furuset IKEA.no</a>
 				<ReactModal
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}

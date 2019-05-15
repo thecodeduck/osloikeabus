@@ -44,10 +44,8 @@ class SentrumPage extends React.Component {
 
 		return (
 			<div>
-				<h2>{localizedTextTable.title} Sentrum</h2>
 				<NextBus destination="IKEA Furuset" store={Furuset} direction="to" localizedTextTable={localizedTextTable} />
 				<button className="button-primary" onClick={() => this.openModal('furuset')}>{localizedTextTable.departure}</button>
-				<a href="https://www.ikea.com/no/no/stores/furuset/" className="button noBorder" target="_blank" rel="noopener noreferrer">Furuset IKEA.no</a>
 				<ReactModal
 					isOpen={this.state.modalIsOpen.furuset}
 					onAfterOpen={this.afterOpenModal}
@@ -61,7 +59,6 @@ class SentrumPage extends React.Component {
 
 				<NextBus destination="IKEA Slependen" store={Slependen} direction="to" localizedTextTable={localizedTextTable} />
 				<button className="button-primary" onClick={() => this.openModal('slependen')}>{localizedTextTable.departure}</button>
-				<a href="https://www.ikea.com/no/no/stores/slependen/" className="button noBorder" target="_blank" rel="noopener noreferrer">Slependen IKEA.no</a>
 				<ReactModal
 					isOpen={this.state.modalIsOpen.slependen}
 					onAfterOpen={this.afterOpenModal}

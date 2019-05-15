@@ -37,11 +37,10 @@ header {
 
 .clock {
 	margin: 0;
-	font-size: 500%;
+	font-weight: bold;
 	text-align: center;
 }
 .clockdate {
-	font-size: 200%;
 	text-align: center;
 }
 

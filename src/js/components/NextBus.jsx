@@ -70,7 +70,8 @@ class NextBus extends React.Component {
 
 		return (
 			<React.Fragment>
-				<h4 className="next">{destination}: {getNextBus(store, direction)}</h4>
+				<h1>{getNextBus(store, direction)}</h1>
+				<h4>{localizedTextTable.to} {destination}</h4>
 			</React.Fragment>
 		);
 	}

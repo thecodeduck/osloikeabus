@@ -32,7 +32,6 @@ class SlependenPage extends React.Component {
 
 		return (
 			<div>
-				<h2>{localizedTextTable.title} Slependen</h2>
 				<NextBus destination="Sentrum" store={Slependen} direction="from" localizedTextTable={localizedTextTable} />
 				<button className="button-primary"  onClick={this.openModal}>{localizedTextTable.departure}</button>
 				<ReactModal

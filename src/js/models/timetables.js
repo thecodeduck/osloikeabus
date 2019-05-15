@@ -1,4 +1,5 @@
 export const Furuset = {
+	name: 'Furuset',
 	to: [
 		10.00,
 		11.00,
@@ -67,6 +68,7 @@ export const Furuset = {
 	],
 };
 export const Slependen = {
+	name: 'Slependen',
 	to: [
 		10.30,
 		11.30,

@@ -71,7 +71,7 @@ class NextBus extends React.Component {
 		return (
 			<React.Fragment>
 				<h1>{getNextBus(store, direction)}</h1>
-				<h4>{localizedTextTable.to} {destination}</h4>
+				<p>{localizedTextTable.title} {store.name} {localizedTextTable.to} {destination}</p>
 			</React.Fragment>
 		);
 	}
@@ -79,10 +79,7 @@ class NextBus extends React.Component {
 
 NextBus.propTypes = {
 	localizedTextTable: PropTypes.shape({
-		to: PropTypes.shape({
-			Furuset: PropTypes.string,
-			Slependen: PropTypes.string,
-		}),
+		to: PropTypes.string,
 		intro: PropTypes.string,
 	}),
 };

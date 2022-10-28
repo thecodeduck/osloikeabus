@@ -37,10 +37,24 @@ const en = {
 	from: 'from',
 };
 
+const sr = {
+	title: 'Sledeći IKEA autobus iz',
+	intro: 'Postoje dva besplatna IKEA autobusa: jedan za Furuset, jedan za Slependen. Dva autobusa idu jednom na sad, od ponedeljka do subote, između Fred Olsens kapije 5 i IKEE. Ovo je ruta bez usputnih stanica.',
+	map: 'Pogledaj na Google Mapama',
+	mapFredOlsen: 'Pogledaj Fred Olsens kapiju 5 na Google Mapama',
+	departure: 'Sva vremena polaska',
+	closed: 'Zatvoreno',
+	language: 'Jezik',
+	accept: 'Prihvati',
+	to: 'za',
+	from: 'iz',
+};
+
 const localizedTextTable = {
 	en,
 	nb,
 	pl,
+	sr,
 };
 
 export default localizedTextTable;
